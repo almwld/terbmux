@@ -7,6 +7,7 @@ android {
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
 
     defaultConfig {
+        buildConfigField "String", "TERMUX_PACKAGE_VARIANT", "\"apt-android-7\""
         applicationId "com.termux"
         minSdkVersion project.properties.minSdkVersion.toInteger()
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
