@@ -24,6 +24,8 @@ android {
 }
 
 dependencies {
+    implementation "androidx.preference:preference:1.2.1"
+    implementation "androidx.fragment:fragment:1.7.1"
     implementation project(':terminal-emulator')
     implementation project(':terminal-view')
     implementation project(':termux-shared')
