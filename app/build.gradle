@@ -7,6 +7,7 @@ android {
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
 
     defaultConfig {
+        manifestPlaceholders = [TERMUX_PACKAGE_NAME: "com.termux"]
         applicationId "com.termux"
         minSdkVersion project.properties.minSdkVersion.toInteger()
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
