@@ -12,4 +12,7 @@ public class TermuxAmSocketServer {
 
     public static void setTermuxAppAMSocketServerEnabled(Context context, boolean enabled) {
     }
+
+    public static void setupTermuxAmSocketServer(Context context) {
+    }
 }
