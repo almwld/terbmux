@@ -4,16 +4,15 @@ plugins {
 
 android {
     namespace "com.termux"
-    namespace "com.termux"
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
 
     defaultConfig {
-        manifestPlaceholders = [TERMUX_PACKAGE_NAME: "com.termux"]
         applicationId "com.termux"
         minSdkVersion project.properties.minSdkVersion.toInteger()
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [TERMUX_PACKAGE_NAME: "com.termux"]
     }
 
     buildTypes {
@@ -25,8 +24,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.preference:preference:1.2.1"
-    implementation "androidx.fragment:fragment:1.7.1"
     implementation project(':terminal-emulator')
     implementation project(':terminal-view')
     implementation project(':termux-shared')
