@@ -65,7 +65,7 @@ public final class TerminalRenderer {
             // فشل التشكيل — نكمل بالنص الأصلي
         }
         Bidi bidi = new Bidi();
-        bidi.setPara(text.toCharArray(), 0, null);
+        bidi.setPara(text, Bidi.DIRECTION_DEFAULT_RIGHT_TO_LEFT, null);
         return bidi.writeReordered(Bidi.DO_MIRRORING | Bidi.KEEP_BASE_COMBINING);
     }
 
