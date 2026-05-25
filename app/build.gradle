@@ -33,3 +33,4 @@ dependencies {
     implementation "com.google.guava:guava:33.2.1-android"
     implementation "commons-io:commons-io:2.13.0"
 }
+    implementation project(":terminal-emulator")
