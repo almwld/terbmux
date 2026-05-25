@@ -20,3 +20,10 @@ dependencies {
     // ICU4J — دعم العربية RTL
     implementation "com.ibm.icu:icu4j:74.2"
 }
+
+dependencies {
+    // إضافة terminal-emulator
+    implementation project(':terminal-emulator')
+    implementation "androidx.annotation:annotation:1.9.0"
+    implementation "com.ibm.icu:icu4j:74.2"
+}
