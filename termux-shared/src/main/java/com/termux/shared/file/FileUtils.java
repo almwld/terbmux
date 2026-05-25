@@ -6,7 +6,6 @@ import android.system.Os;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.common.io.RecursiveDeleteOption;
 import com.termux.shared.file.filesystem.FileType;
 import com.termux.shared.file.filesystem.FileTypes;
 import com.termux.shared.data.DataUtils;
@@ -1336,7 +1335,7 @@ public class FileUtils {
                  * https://github.com/google/guava/blob/v30.1.1/guava/src/com/google/common/io/MoreFiles.java#L775
                  */
                 //noinspection UnstableApiUsage
-                com.google.common.io.MoreFiles.deleteRecursively(file.toPath(), RecursiveDeleteOption.ALLOW_INSECURE);
+                try { java.nio.file.Files.walk(file.toPath()).sorted(java.util.Comparator.reverseOrder()).map(java.nio.file.Path::toFile).forEach(java.io.File::delete); } catch (java.io.IOException e) { /* ignore */ }
             } else {
                 if (fileType == FileType.DIRECTORY) {
                     // deleteDirectory() instead of forceDelete() gets the files list first instead of walking directory tree, so seems safer
@@ -1410,7 +1409,7 @@ public class FileUtils {
                     /* If an exception is thrown, the exception message might not contain the full errors.
                      * Individual failures get added to suppressed throwables. */
                     //noinspection UnstableApiUsage
-                    com.google.common.io.MoreFiles.deleteDirectoryContents(file.toPath(), RecursiveDeleteOption.ALLOW_INSECURE);
+                    java.io.File[] files = file.listFiles(); if (files != null) { for (java.io.File f : files) { try { java.nio.file.Files.walk(f.toPath()).sorted(java.util.Comparator.reverseOrder()).map(java.nio.file.Path::toFile).forEach(java.io.File::delete); } catch (java.io.IOException e) { /* ignore */ } } }
                 } else {
                     // Will give runtime exceptions on android < 8 due to missing classes like java.nio.file.Path if org.apache.commons.io version > 2.5
                     org.apache.commons.io.FileUtils.cleanDirectory(new File(filePath));
