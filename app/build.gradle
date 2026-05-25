@@ -4,6 +4,7 @@ plugins {
 
 android {
     namespace "com.termux"
+    namespace "com.termux"
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
 
     defaultConfig {
