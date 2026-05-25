@@ -1,6 +1,22 @@
+plugins {
+    id "com.android.library"
+}
+
+android {
+    namespace "com.termux.view"
+    compileSdkVersion project.properties.compileSdkVersion.toInteger()
+
+    defaultConfig {
+        minSdkVersion project.properties.minSdkVersion.toInteger()
+        targetSdkVersion project.properties.targetSdkVersion.toInteger()
+    }
+}
+
 dependencies {
-    implementation 'androidx.annotation:annotation:1.9.0'
-    implementation 'androidx.core:core:1.13.1'
-    implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
-    implementation 'com.ibm.icu:icu4j:74.2'
+    implementation "androidx.annotation:annotation:1.9.0"
+    implementation "androidx.core:core:1.13.1"
+    implementation "androidx.drawerlayout:drawerlayout:1.2.0"
+    
+    // ICU4J — دعم العربية RTL
+    implementation "com.ibm.icu:icu4j:74.2"
 }
