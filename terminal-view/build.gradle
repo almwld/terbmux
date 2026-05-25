@@ -13,17 +13,11 @@ android {
 }
 
 dependencies {
+    // هذا هو السطر المفقود والأهم
+    implementation project(':terminal-emulator')
+
     implementation "androidx.annotation:annotation:1.9.0"
     implementation "androidx.core:core:1.13.1"
     implementation "androidx.drawerlayout:drawerlayout:1.2.0"
-    
-    // ICU4J — دعم العربية RTL
-    implementation "com.ibm.icu:icu4j:74.2"
-}
-
-dependencies {
-    // إضافة terminal-emulator
-    implementation project(':terminal-emulator')
-    implementation "androidx.annotation:annotation:1.9.0"
     implementation "com.ibm.icu:icu4j:74.2"
 }
